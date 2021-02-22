@@ -4,10 +4,10 @@
 ### How to Run It  
         
   - Execute the program using:
-  
-  
-      -  $ python main.py
 
+```bash
+pserve development.ini
+```
 ### Virtual environment
   - Testing against Python 3.7 to support data classes.  
 ```bash 
@@ -19,18 +19,38 @@ virtualenv -p python3.7 venv
     ```bash
        source venv/bin/activate
     ```
-1. Install requirements as usual:
+1. Install the project in editable mode with its testing requirements:
     ```bash
-       cd PROJECT_ROOT/utils/pyramid_wiki
-       pip install -r requirements/requirements.txt
-       pip install -r requirements/test-requirements.txt
+       cd PROJECT_ROOT/pyramid_wiki/tutorial
+       pip install -e ".[testing]"       
     ```
+1. Initialize and upgrade the database using Alembic.
+
+    - Generate your first revision.
+
+        ```bash 
+           alembic -c development.ini revision --autogenerate -m "init"
+        ```
+
+    - Upgrade to that revision.
+       ```bash
+          alembic -c development.ini upgrade head
+       ```
+
+1. Load default data into the database using a script.
+    ```bash
+       initialize_tutorial_db development.ini
+    ```
+
 1. Run the tests:
     ```bash
-       cd PROJECT_ROOT/utils/pyramid_wiki
+       cd PROJECT_ROOT/pyramid_wiki/tutorial
        pytest
     ```
-    
+1. Run your project.
+   ```
+       pserve development.ini
+   ```
 ### Key Dependencies
 
 ### Future Enhancements
