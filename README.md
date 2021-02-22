@@ -11,7 +11,7 @@
 ### Virtual environment
   - Testing against Python 3.7 to support data classes.  
 ```bash 
-virtualenv -p python3.7 gdprlib_venv
+virtualenv -p python3.7 venv
 ```
 
 ### How to Run the Unit Tests
