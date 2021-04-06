@@ -1,9 +1,7 @@
 import bcrypt
-from sqlalchemy import (
-    Column,
-    Integer,
-    Text,
-)
+from sqlalchemy import Column
+from sqlalchemy import Integer
+from sqlalchemy import Text
 
 from .meta import Base
 
